@@ -1,0 +1,14 @@
+{
+  "name": "Print-Friendly DigitalOcean Articles",
+  "description": "An extension for showing a more print-friendly version of the DigitalOcean Community Articles",
+  "version": "0.1",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+      "default_title": "DO:Print-Friendly Mode",
+      "default_icon": "images/icon16x16.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
