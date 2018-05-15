@@ -2,10 +2,11 @@
   "name": "Print-Friendly DigitalOcean Articles",
   "description": "An extension for showing a more print-friendly version of the DigitalOcean Community Articles",
   "version": "0.1",
-  "manifest_version": 2,
   "permissions" : [
     "declarativeContent",
-    "activeTab"
+    "activeTab",
+    "*://*/*",
+    "webNavigation"
   ],
   "icons": {
     "16": "images/icon16.png",
@@ -16,7 +17,7 @@
   },
   "background": {
     "scripts": ["js/background.js"],
-    "persistent": true
+    "persistent": false
   },
   "page_action": {
     "default_icon": {
@@ -28,5 +29,6 @@
     },
     "default_title": "Print-Friendly Articles",
     "default_popup": "popup.html"
-  }
+  },
+  "manifest_version": 2
 }

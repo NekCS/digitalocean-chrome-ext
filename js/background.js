@@ -1,17 +1,27 @@
-chrome.runtime.onInstalled.addListener(function() {
-  // Replace all rules ...
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    // With a new rule ...
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        conditions: [
-          new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlContains: 't'}
-          })
+
+// chrome.tabs.onUpdated.addListener(function(id, info, tab) {
+// 	console.log(tab.url);
+//   // if (tab.url.toLowerCase().indexOf("flipkart.com") > -1) {
+//   //   chrome.pageAction.show(tab.id);
+//   // }
+// });
+
+// on extension installed
+ chrome.runtime.onInstalled.addListener(function() {
+ 	console.log('Extension installed')
+ 	
+	chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+      	chrome.declarativeContent.onPageChanged.addRules([{
+        	conditions: [new chrome.declarativeContent.PageStateMatcher({
+          	pageUrl: {urlContains: 'www.digitalocean.com/community/tutorials/'},
+        	})
         ],
-        // And shows the extension's page action.
-        actions: [ new chrome.declarativeContent.ShowPageAction() ]
-      }
-    ]);
-  });
-});
+            actions: [new chrome.declarativeContent.ShowPageAction()]
+      	}]);
+    });
+
+    chrome.webNavigation.onCompleted.addListener(function() {
+	    alert("This is my favorite website!");
+	    //chrome.declarativeContent.ShowPageAction();
+	}, {url: [{urlMatches : 'https://www.google.com/'}]});
+ });
