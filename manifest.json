@@ -2,13 +2,31 @@
   "name": "Print-Friendly DigitalOcean Articles",
   "description": "An extension for showing a more print-friendly version of the DigitalOcean Community Articles",
   "version": "0.1",
-  "permissions": [
+  "manifest_version": 2,
+  "permissions" : [
+    "declarativeContent",
     "activeTab"
   ],
-  "browser_action": {
-      "default_title": "DO:Print-Friendly Mode",
-      "default_icon": "images/icon16x16.png",
-      "default_popup": "popup.html"
+  "icons": {
+    "16": "images/icon16.png",
+    "24": "images/icon24.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
   },
-  "manifest_version": 2
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_title": "Print-Friendly Articles",
+    "default_popup": "popup.html"
+  }
 }
